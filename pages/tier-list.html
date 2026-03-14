@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier List - Level Up</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header sticky-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <div class="logo-text">⚔️</div>
+                </div>
+                <h1 class="brand-title">Level Up</h1>
+            </div>
+
+            <nav class="navigation">
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="lanes-guide.html" class="nav-link">Lanes Guide</a></li>
+                    <li><a href="heroes.html" class="nav-link">Heroes</a></li>
+                    <li><a href="items.html" class="nav-link">Items</a></li>
+                    <li><a href="tier-list.html" class="nav-link active">Tier List</a></li>
+                    <li><a href="patch-notes.html" class="nav-link">Patch Notes</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <h1 class="page-title">📊 Tier List & Team Builder</h1>
+        <p class="page-subtitle">Check current meta heroes and build your perfect team composition</p>
+
+        <!-- Tabs -->
+        <div class="tierlist-tabs">
+            <button class="tab-btn" onclick="switchTab('meta')">Meta Tier List</button>
+            <button class="tab-btn" onclick="switchTab('personal')">Personal Tier List</button>
+            <button class="tab-btn active" onclick="switchTab('team')">Team Builder</button>
+        </div>
+
+        <!-- Meta Tier List Tab -->
+        <div class="tab-content" id="meta-tab">
+            <h2 class="section-title">Current Patch Meta Tier List</h2>
+            <p class="section-subtitle">Heroes ranked by current strength in the meta</p>
+
+            <div class="tier-list">
+                <div class="tier-row s-tier">
+                    <div class="tier-label">S</div>
+                    <div class="tier-heroes">
+                        <div class="tier-hero animate-on-scroll">Beatrix</div>
+                        <div class="tier-hero animate-on-scroll">Kagura</div>
+                        <div class="tier-hero animate-on-scroll">Angela</div>
+                    </div>
+                </div>
+
+                <div class="tier-row s-tier">
+                    <div class="tier-label">A</div>
+                    <div class="tier-heroes">
+                        <div class="tier-hero animate-on-scroll">Luo Yi</div>
+                        <div class="tier-hero animate-on-scroll">Chou</div>
+                        <div class="tier-hero animate-on-scroll">Roger</div>
+                        <div class="tier-hero animate-on-scroll">Kaja</div>
+                    </div>
+                </div>
+
+                <div class="tier-row a-tier">
+                    <div class="tier-label">B</div>
+                    <div class="tier-heroes">
+                        <div class="tier-hero animate-on-scroll">Brody</div>
+                        <div class="tier-hero animate-on-scroll">Tigreal</div>
+                        <div class="tier-hero animate-on-scroll">Lancelot</div>
+                    </div>
+                </div>
+
+                <div class="tier-row a-tier">
+                    <div class="tier-label">C</div>
+                    <div class="tier-heroes">
+                        <div class="tier-hero animate-on-scroll">Thamuz</div>
+                        <div class="tier-hero animate-on-scroll">Fanny</div>
+                    </div>
+                </div>
+
+                <div class="tier-row b-tier">
+                    <div class="tier-label">F</div>
+                    <div class="tier-heroes">
+                        <div class="tier-hero animate-on-scroll">Harith</div>
+                        <div class="tier-hero animate-on-scroll">Estes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tier-info">
+                <div class="info-card">
+                    <h3>S+ Tier</h3>
+                    <p><strong>Overpowered:</strong> These heroes are extremely strong in the current meta. Pick them
+                        whenever possible.</p>
+                </div>
+                <div class="info-card">
+                    <h3>S Tier</h3>
+                    <p><strong>Excellent:</strong> Very strong heroes that are safe picks for most matchups.</p>
+                </div>
+                <div class="info-card">
+                    <h3>A Tier</h3>
+                    <p><strong>Great:</strong> Strong heroes with good matchups. Can carry games with proper play.</p>
+                </div>
+                <div class="info-card">
+                    <h3>B Tier</h3>
+                    <p><strong>Good:</strong> Solid heroes that can work. Require good game knowledge to maximize.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Tier List Tab -->
+        <div class="tab-content" id="personal-tab">
+            <h2 class="section-title">Create Your Personal Tier List</h2>
+            <p class="section-subtitle">Rank heroes based on your preference and playstyle</p>
+
+            <div class="personal-tierlist-container">
+                <div class="available-heroes">
+                    <h3>Available Heroes</h3>
+                    <div class="heroes-pool" id="heroesPool">
+                    </div>
+                </div>
+
+                <div class="tier-builder">
+                    <div class="tier-row-builder top">
+                        <span>S+</span>
+                        <div class="drop-zone" data-tier="splus"></div>
+                    </div>
+                    <div class="tier-row-builder">
+                        <span>S</span>
+                        <div class="drop-zone" data-tier="s"></div>
+                    </div>
+                    <div class="tier-row-builder">
+                        <span>A</span>
+                        <div class="drop-zone" data-tier="a"></div>
+                    </div>
+                    <div class="tier-row-builder">
+                        <span>B</span>
+                        <div class="drop-zone" data-tier="b"></div>
+                    </div>
+                    <div class="tier-row-builder">
+                        <span>C</span>
+                        <div class="drop-zone" data-tier="c"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tier-actions">
+                <button class="btn btn-primary" onclick="resetTierList()">Reset Tier List</button>
+                <button class="btn btn-secondary" onclick="downloadTierList()">Download Image</button>
+            </div>
+        </div>
+
+        <!-- Team Builder Tab -->
+        <div class="tab-content active" id="team-tab">
+            <h2 class="section-title">5v5 Team Builder</h2>
+            <p class="section-subtitle">Build your team composition and visualize lane assignments</p>
+            <p style="color: var(--accent-blue); margin-bottom: 2rem; font-weight: 500;">💡 Drag heroes from the Hero
+                Pool onto the map circles to assign them to lanes!</p>
+
+            <div class="team-builder-fullscreen">
+                <!-- Hero Pool Overlay -->
+                <div class="hero-pool-overlay">
+                    <div class="filter-container">
+                        <button class="hamburger-btn" id="filterToggle">
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                        </button>
+                        <div class="filter-dropdown" id="filterDropdown">
+                            <button class="filter-option active" data-type="all">All</button>
+                            <button class="filter-option" data-type="fighter">Fighter</button>
+                            <button class="filter-option" data-type="assassin">Assassin</button>
+                            <button class="filter-option" data-type="mage">Mage</button>
+                            <button class="filter-option" data-type="marksman">Marksman</button>
+                            <button class="filter-option" data-type="tank">Tank</button>
+                            <button class="filter-option" data-type="support">Support</button>
+                        </div>
+                    </div>
+                    <div class="hero-pool-header">
+                        <h3>Hero Pool</h3>
+                    </div>
+                    <div class="heroes-pool-team" id="teamHeroesPool">
+                        <!-- Image-based heroes -->
+                        <div class="hero-item-team" draggable="true" data-hero="Beatrix 🎯" data-type="marksman"><img
+                                src="../Hero Icons/BEATRIX.jpg" alt="Beatrix"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Chou 🥋" data-type="fighter"><img
+                                src="../Hero Icons/CHOU.jpg" alt="Chou"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Fanny 🪂" data-type="assassin"><img
+                                src="../Hero Icons/FANNY.jpg" alt="Fanny"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Kagura 🎪" data-type="mage"><img
+                                src="../Hero Icons/KAGURA.jpg" alt="Kagura"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Angela ❤️" data-type="support"><img
+                                src="../Hero Icons/ANGELA.jpg" alt="Angela"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Luo Yi 🧘" data-type="mage"><img
+                                src="../Hero Icons/LUOYI.jpg" alt="Luo Yi"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Roger ⚔️" data-type="fighter"><img
+                                src="../Hero Icons/ROGER.jpg" alt="Roger"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Kaja 🛡️" data-type="tank"><img
+                                src="../Hero Icons/KAJA.jpg" alt="Kaja"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Brody 🏹" data-type="marksman"><img
+                                src="../Hero Icons/BRODY.jpg" alt="Brody"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Tigreal 🛡️" data-type="tank"><img
+                                src="../Hero Icons/TIGREAL.jpg" alt="Tigreal"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Thamuz 🗿" data-type="fighter"><img
+                                src="../Hero Icons/THAMUZ.jpg" alt="Thamuz"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Estes ❄️" data-type="support"><img
+                                src="../Hero Icons/ESTES.png" alt="Estes"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Harith 🔮" data-type="mage"><img
+                                src="../Hero Icons/HARITH.png" alt="Harith"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-hero="Lancelot ⚔️" data-type="fighter"><img
+                                src="../Hero Icons/LANCELOT.jpg" alt="Lancelot"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+
+                        <!-- Emoji-based heroes -->
+                        <div class="hero-item-team" draggable="true" data-type="fighter" data-hero="Alucard ⚔️"><img
+                                src="../Hero Icons/ALUCARD.png" alt="Alucard"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman" data-hero="Layla 🏹"><img
+                                src="../Hero Icons/LAYLA.png" alt="Layla"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman" data-hero="Miya 🏹"><img
+                                src="../Hero Icons/MIYA.png" alt="Miya"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter" data-hero="Saber ⚔️"><img
+                                src="../Hero Icons/SABER.png" alt="Saber"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin" data-hero="Karina 🗡️"><img
+                                src="../Hero Icons/KARINA.png" alt="Karina"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Akai 🛡️"><img
+                                src="../Hero Icons/AKAI.png" alt="Akai"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Franco 🛡️"><img
+                                src="../Hero Icons/FRANCO.png" alt="Franco"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Atlas 🛡️"><img
+                                src="../Hero Icons/ATLAS.png" alt="Atlas"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Gatotkaca 🛡️"><img
+                                src="../Hero Icons/GATOTKACA.png" alt="Gatotkaca"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Minotaur 🛡️"><img
+                                src="../Hero Icons/MINOTAUR.png" alt="Minotaur"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman" data-hero="Johnson 🏹"><img
+                                src="../Hero Icons/JOHNSON.png" alt="Johnson"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Grock 🛡️"><img
+                                src="../Hero Icons/GROCK.png" alt="Grock"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman" data-hero="Irithel 🏹"><img
+                                src="../Hero Icons/IRITHEL.png" alt="Irithel"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter" data-hero="Lukas ⚔️"><img
+                                src="../Hero Icons/LUKAS.png" alt="Lukas"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman" data-hero="Hanabi 🏹"><img
+                                src="../Hero Icons/HANABI.png" alt="Hanabi"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman" data-hero="Melissa 🏹"><img
+                                src="../Hero Icons/MELISSA.png" alt="Melissa"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman" data-hero="Clint 🏹"><img
+                                src="../Hero Icons/CLINT.png" alt="Clint"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Chip 🛡️"><img
+                                src="../Hero Icons/CHIP.png" alt="Chip"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank" data-hero="Belerick 🛡️"><img
+                                src="../Hero Icons/BELERICK.png" alt="Belerick"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank"><img
+                                src="../Hero Icons/KHUFRA.png" alt="Khufra"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank"><img
+                                src="../Hero Icons/BARATS.png" alt="Barats"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank"><img
+                                src="../Hero Icons/URANUS.png" alt="Uranus"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank"><img
+                                src="../Hero Icons/HYLOS.png" alt="Hylos"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank"><img
+                                src="../Hero Icons/GLOO.png" alt="Gloo"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter"><img
+                                src="../Hero Icons/RUBY.png" alt="Ruby"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter"><img
+                                src="../Hero Icons/CHOU.png" alt="Chou"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="mage"><img
+                                src="../Hero Icons/ZHASK.png" alt="Zhask"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter"><img
+                                src="../Hero Icons/SILVANNA.png" alt="Silvanna"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="mage"><img
+                                src="../Hero Icons/ALICE.png" alt="Alice"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="support"><img
+                                src="../Hero Icons/NANA.png" alt="Nana"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="support"><img
+                                src="../Hero Icons/LOLITA.png" alt="Lolita"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="mage"><img
+                                src="../Hero Icons/GORD.png" alt="Gord"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="mage"><img
+                                src="../Hero Icons/KADITA.png" alt="Kadita"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin"><img
+                                src="../Hero Icons/NATALIA.png" alt="Natalia"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin"><img
+                                src="../Hero Icons/HAYABUSA.png" alt="Hayabusa"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin"><img
+                                src="../Hero Icons/HELCURT.png" alt="Helcurt"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin"><img
+                                src="../Hero Icons/LING.png" alt="Ling"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin"><img
+                                src="../Hero Icons/AAMON.png" alt="Aamon"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="mage"><img
+                                src="../Hero Icons/VALIR.png" alt="Valir"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter"><img
+                                src="../Hero Icons/MARTIS.png" alt="Martis"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank"><img
+                                src="../Hero Icons/HILDA.png" alt="Hilda"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter"><img
+                                src="../Hero Icons/MINSITTHAR.png" alt="Minsitthar"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman"><img
+                                src="../Hero Icons/IXIA.png" alt="Ixia"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Pharsa 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Odette 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Lunox 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Cyclops 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Aurora 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Vexana 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Valentina 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Kimmy 🔮</div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin">Yi Sun-shin 🏹</div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman">Lesley 🏹</div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman">Moskov 🏹</div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman">Bruno 🏹</div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman">Popol and Kupa 🏹</div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman">Beatrix 🎯</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Paquito 🎯</div>
+                        <div class="hero-item-team" draggable="true" data-type="support">Mathilda 🎯</div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman">Karrie 🎯</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Aldous ⚔️</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Alpha ⚔️</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Jawhead 🐊</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Sun ⚔️</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Terizla ⚔️</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Baxia 🐉</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Uranus 🐂</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank"><img
+                                src="../Hero Icons/KHUFRA.png" alt="Khufra"
+                                style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Barats 🦍</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Yorn 🦴</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Belerick 🦴</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Lumburr 🌳</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Hylos 🌳</div>
+                        <div class="hero-item-team" draggable="true" data-type="support">Diggie 🐰</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Argus 🐺</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Lapulapu 🐺</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Fredrinn 🐺</div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin">Julian 🐺</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Xavier 🐺</div>
+                        <div class="hero-item-team" draggable="true" data-type="support">Rafaela ❤️</div>
+                        <div class="hero-item-team" draggable="true" data-type="support">Faramis ❤️</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Yu Zhong 🧘</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Badang ⚔️</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Guinevere ⚔️</div>
+                        <div class="hero-item-team" draggable="true" data-type="tank">Esmeralda ⚔️</div>
+                        <div class="hero-item-team" draggable="true" data-type="marksman">Wanwan 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Bane 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin">Selena 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin">Hanzo 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin">Gusion 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin">Joy 🐱</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Arlott 🐱</div>
+                        <div class="hero-item-team" draggable="true" data-type="assassin">Benedetta 🐱</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Aulus 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="support">Floryn 🌸</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Yin 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Novaria 🌸</div>
+                        <div class="hero-item-team" draggable="true" data-type="fighter">Leomord 🗡️</div>
+                        <div class="hero-item-team" draggable="true" data-type="mage">Yve 🔮</div>
+                    </div>
+                </div>
+
+                <!-- Fullscreen Map -->
+                <div class="fullscreen-map-container">
+                    <div class="map-3d">
+                        <!-- Map background image -->
+                        <div class="map-background"></div>
+
+                        <!-- 3D lane structures -->
+                        <div class="lane-structure exp-lane">
+                            <div class="lane-tower"></div>
+                            <div class="lane-path"></div>
+                        </div>
+                        <div class="lane-structure mid-lane">
+                            <div class="lane-tower"></div>
+                            <div class="lane-path"></div>
+                        </div>
+                        <div class="lane-structure jungle">
+                        </div>
+                        <div class="lane-structure gold-lane">
+                            <div class="lane-tower"></div>
+                            <div class="lane-path"></div>
+                        </div>
+                        <div class="lane-structure roam-lane">
+                            <div class="lane-tower"></div>
+                            <div class="lane-path"></div>
+                        </div>
+
+                        <!-- Drop zones for heroes -->
+                        <div class="drop-zones-3d">
+                            <div class="hero-slot exp-slot" data-position="0">
+                                <div class="slot-circle"></div>
+                                <div class="slot-glow"></div>
+                            </div>
+                            <div class="hero-slot mid-slot" data-position="1">
+                                <div class="slot-circle"></div>
+                                <div class="slot-glow"></div>
+                            </div>
+                            <div class="hero-slot jungle-slot" data-position="2">
+                                <div class="slot-circle"></div>
+                                <div class="slot-glow"></div>
+                            </div>
+                            <div class="hero-slot gold-slot" data-position="4">
+                                <div class="slot-circle"></div>
+                                <div class="slot-glow"></div>
+                            </div>
+                            <div class="hero-slot roam-slot" data-position="3">
+                                <div class="slot-circle"></div>
+                                <div class="slot-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Summary Overlay -->
+                <div class="team-summary-overlay">
+                    <h3>Team Composition</h3>
+                    <div class="team-roles">
+                        <div class="role-slot">
+                            <div class="role-label">EXP Lane</div>
+                            <div class="role-hero" id="slot-0">Empty</div>
+                        </div>
+                        <div class="role-slot">
+                            <div class="role-label">Mid Lane</div>
+                            <div class="role-hero" id="slot-1">Empty</div>
+                        </div>
+                        <div class="role-slot">
+                            <div class="role-label">Jungle</div>
+                            <div class="role-hero" id="slot-2">Empty</div>
+                        </div>
+                        <div class="role-slot">
+                            <div class="role-label">Gold Lane</div>
+                            <div class="role-hero" id="slot-4">Empty</div>
+                        </div>
+                        <div class="role-slot">
+                            <div class="role-label">Roam</div>
+                            <div class="role-hero" id="slot-3">Empty</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="resetTeam()">Reset Team</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Level Up - Mobile Legends Beginner's Guide.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Tabs */
+        .tierlist-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--text-light);
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Tier List Styles */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .tier-list {
+            background: var(--bg-dark-3);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .tier-row {
+            display: flex;
+            border-bottom: 1px solid var(--primary-color);
+            padding: 1rem;
+            align-items: stretch;
+        }
+
+        .tier-row:last-child {
+            border-bottom: none;
+        }
+
+        .tier-label {
+            min-width: 60px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border-right: 1px solid var(--primary-color);
+        }
+
+        .s-tier .tier-label {
+            background: linear-gradient(135deg, #ff4444, #ff8844);
+        }
+
+        .a-tier .tier-label {
+            background: linear-gradient(135deg, #ffdd44, #ffaa44);
+        }
+
+        .b-tier .tier-label {
+            background: linear-gradient(135deg, #44ff44, #44ddff);
+        }
+
+        .tier-heroes {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            align-items: center;
+            flex: 1;
+        }
+
+        .tier-hero {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: var(--text-light);
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+        }
+
+        .tier-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: var(--bg-dark-3);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Personal Tier List */
+        .personal-tierlist-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .available-heroes,
+        .available-heroes-team {
+            background: var(--bg-dark-3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .available-heroes h3,
+        .available-heroes-team h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .heroes-pool,
+        .heroes-pool-team {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 0.5rem;
+            max-height: calc(100% - 4rem);
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 0.5rem;
+        }
+
+        .heroes-pool-team::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .heroes-pool-team::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        .heroes-pool-team::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .heroes-pool-team::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        .hero-item,
+        .hero-item-team {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: #000;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: grab;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            user-select: none;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .hero-item:hover,
+        .hero-item-team:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            border-color: #fff;
+        }
+
+        .hero-item:active,
+        .hero-item-team:active {
+            cursor: grabbing;
+        }
+
+        .beatrix-hero {
+            background-image: url('../Hero Icons/BEATRIX.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .chou-hero {
+            background-image: url('../Hero Icons/CHOU.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .fanny-hero {
+            background-image: url('../Hero Icons/FANNY.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .kagura-hero {
+            background-image: url('../Hero Icons/KAGURA.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .angela-hero {
+            background-image: url('../Hero Icons/ANGELA.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .luoyi-hero {
+            background-image: url('../Hero Icons/LUOYI.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .roger-hero {
+            background-image: url('../Hero Icons/ROGER.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .kaja-hero {
+            background-image: url('../Hero Icons/KAJA.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .brody-hero {
+            background-image: url('../Hero Icons/BRODY.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .tigreal-hero {
+            background-image: url('../Hero Icons/TIGREAL.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .thamuz-hero {
+            background-image: url('../Hero Icons/THAMUZ.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .estes-hero {
+            background-image: url('../Hero Icons/ESTES.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .harith-hero {
+            background-image: url('../Hero Icons/HARITH.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .lancelot-hero {
+            background-image: url('../Hero Icons/LANCELOT.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Tier Builder */
+        .tier-builder {
+            background: var(--bg-dark-3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .tier-row-builder {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .tier-row-builder span {
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            min-width: 40px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .drop-zone {
+            flex: 1;
+            min-height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px dashed var(--primary-color);
+            border-radius: 5px;
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-content: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        /* Team Builder Fullscreen */
+        .team-builder-fullscreen {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            min-height: 800px;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 3px solid var(--primary-color);
+            background: var(--bg-dark-2);
+        }
+
+        .hero-pool-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 250px;
+            height: calc(100% - 40px);
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 1rem;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-pool-overlay h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-pool-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-pool-header h3 {
+            margin: 0;
+        }
+
+        .hero-search-input {
+            width: 100%;
+            padding: 0.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-search-input::placeholder {
+            color: rgba(212, 175, 55, 0.5);
+        }
+
+        .hero-search-input:focus {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .team-summary-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 280px;
+            height: calc(100% - 40px);
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 1rem;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-summary-overlay h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .fullscreen-map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            perspective: 1200px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .map-3d {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: mapFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes mapFloat {
+
+            0%,
+            100% {
+                transform: rotateX(0deg) rotateY(0deg) scale(1);
+            }
+
+            25% {
+                transform: rotateX(3deg) rotateY(2deg) scale(1.02);
+            }
+
+            50% {
+                transform: rotateX(0deg) rotateY(0deg) scale(1);
+            }
+
+            75% {
+                transform: rotateX(-3deg) rotateY(-2deg) scale(1.02);
+            }
+        }
+
+        .map-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../Item Icons/Team Bulder bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.7) contrast(1.2);
+            border-radius: 10px;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lane-structure {
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+
+        .exp-lane {
+            top: 10%;
+            left: 20%;
+        }
+
+        .mid-lane {
+            top: 30%;
+            left: 20%;
+        }
+
+        .jungle {
+            top: 40%;
+            left: 45%;
+        }
+
+        .gold-lane {
+            top: 70%;
+            left: 20%;
+        }
+
+        .roam-lane {
+            top: 30%;
+            right: 15%;
+        }
+
+        .lane-tower {
+            width: 25px;
+            height: 50px;
+            background: linear-gradient(135deg, #666, #999);
+            border: 3px solid #d4af37;
+            border-radius: 3px;
+            transform: rotateX(15deg) translateZ(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            animation: towerGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes towerGlow {
+            0% {
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+            }
+        }
+
+        .lane-path {
+            position: absolute;
+            top: 55px;
+            left: -12px;
+            width: 50px;
+            height: 5px;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37);
+            border-radius: 3px;
+            transform: rotateX(10deg);
+            animation: pathShimmer 3s linear infinite;
+        }
+
+        @keyframes pathShimmer {
+            0% {
+                background-position: -50px 0;
+            }
+
+            100% {
+                background-position: 50px 0;
+            }
+        }
+
+        .jungle-area {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(34, 139, 34, 0.3), rgba(0, 100, 0, 0.1));
+            border: 3px solid #228B22;
+            border-radius: 50%;
+            transform: rotateX(5deg);
+            animation: junglePulse 5s ease-in-out infinite;
+        }
+
+        @keyframes junglePulse {
+
+            0%,
+            100% {
+                transform: rotateX(5deg) scale(1);
+            }
+
+            50% {
+                transform: rotateX(5deg) scale(1.08);
+            }
+        }
+
+        .drop-zones-3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .hero-slot {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            cursor: grab;
+            pointer-events: auto;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .exp-slot {
+            top: 14%;
+            right: 47%;
+        }
+
+        .mid-slot {
+            top: 40%;
+            left: 45%;
+        }
+
+        .jungle-slot {
+            top: 42%;
+            left: 29%;
+        }
+
+        .gold-slot {
+            top: 69%;
+            left: 50%;
+        }
+
+        .roam-slot {
+            top: 48%;
+            left: 58%;
+        }
+
+        .slot-circle {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
+            border: 3px solid rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+            transform: rotateX(10deg) translateZ(5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+        .slot-glow {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 96px;
+            height: 96px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent);
+            border-radius: 50%;
+            animation: slotPulse 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes slotPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-slot:hover .slot-circle {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.2));
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+            transform: rotateX(10deg) translateZ(10px) scale(1.1);
+        }
+
+        .hero-slot.drag-over .slot-circle {
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0.1));
+            border-color: #00ff00;
+            box-shadow: 0 20px 45px rgba(0, 255, 0, 0.5);
+            transform: rotateX(10deg) translateZ(15px) scale(1.2);
+        }
+
+        .hero-slot:active {
+            cursor: grabbing;
+        }
+
+        .hero-slot.filled {
+            cursor: pointer;
+        }
+
+        .hero-slot.filled .slot-circle {
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.6), rgba(0, 123, 255, 0.3));
+            border-color: #007bff;
+            color: #fff;
+        }
+
+        .hero-slot.filled .slot-glow {
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.3), transparent);
+            animation: filledGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes filledGlow {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes heroPlaced {
+            0% {
+                transform: scale(1) rotateX(10deg) translateZ(5px);
+            }
+
+            50% {
+                transform: scale(1.2) rotateX(15deg) translateZ(15px);
+            }
+
+            100% {
+                transform: scale(1) rotateX(10deg) translateZ(5px);
+            }
+        }
+
+        @keyframes heroReturned {
+            0% {
+                transform: scale(1) rotateX(10deg) translateZ(5px);
+            }
+
+            50% {
+                transform: scale(0.8) rotateX(5deg) translateZ(2px);
+            }
+
+            100% {
+                transform: scale(1) rotateX(10deg) translateZ(5px);
+            }
+        }
+
+        .team-summary {
+            background: var(--bg-dark-3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .team-summary h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .team-roles {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            max-height: calc(100% - 6rem);
+            overflow-y: auto;
+        }
+
+        .team-roles::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .team-roles::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        .team-roles::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .team-roles::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        .role-slot {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+        }
+
+        .role-label {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-hero {
+            color: var(--text-muted);
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .role-hero.filled {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        /* Tier Actions */
+        .tier-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .team-builder-fullscreen {
+                height: 80vh;
+                min-height: 600px;
+            }
+
+            .hero-pool-overlay {
+                width: 200px;
+                top: 10px;
+                left: 10px;
+                height: calc(100% - 20px);
+            }
+
+            .team-summary-overlay {
+                width: 240px;
+                top: 10px;
+                right: 10px;
+                height: calc(100% - 20px);
+            }
+
+            .hero-slot {
+                width: 60px;
+                height: 60px;
+            }
+
+            .slot-glow {
+                width: 76px;
+                height: 76px;
+                top: -8px;
+                left: -8px;
+            }
+
+            .heroes-pool-team {
+                grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+                overflow-x: hidden;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-builder-fullscreen {
+                height: 70vh;
+                min-height: 500px;
+            }
+
+            .hero-pool-overlay {
+                position: static;
+                width: 100%;
+                height: auto;
+                margin-bottom: 1rem;
+                order: 1;
+            }
+
+            .fullscreen-map-container {
+                order: 2;
+                height: 60vh;
+            }
+
+            .team-summary-overlay {
+                position: static;
+                width: 100%;
+                height: auto;
+                order: 3;
+            }
+
+            .team-builder-fullscreen {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero-slot {
+                width: 50px;
+                height: 50px;
+            }
+
+            .slot-glow {
+                width: 66px;
+                height: 66px;
+                top: -8px;
+                left: -8px;
+            }
+
+            .heroes-pool-team {
+                max-height: 200px;
+                grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+                gap: 0.4rem;
+                overflow-x: hidden;
+            }
+
+            .hero-item,
+            .hero-item-team {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .team-roles {
+                max-height: 250px;
+            }
+        }
+
+        /* Hamburger Filter Styles */
+        .filter-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        .hamburger-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(212, 175, 55, 0.3));
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+
+        .hamburger-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(212, 175, 55, 0.5));
+            border-color: #FFA500;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .hamburger-line {
+            width: 18px;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            margin: 2px 0;
+            transition: all 0.4s ease;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+            background: #FF6B35;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -7px);
+            background: #FF6B35;
+        }
+
+        .filter-dropdown {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.95));
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            min-width: 140px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-15px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3), 0 0 0 1px rgba(255, 215, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .filter-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .filter-option {
+            padding: 0.6rem 1.2rem;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+        }
+
+        .filter-option:last-child {
+            border-bottom: none;
+        }
+
+        /* Color-coded filter options */
+        .filter-option[data-type="all"] {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), rgba(212, 175, 55, 0.1));
+        }
+
+        .filter-option[data-type="fighter"] {
+            background: linear-gradient(90deg, rgba(255, 69, 0, 0.1), rgba(220, 20, 60, 0.1));
+        }
+
+        .filter-option[data-type="assassin"] {
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.1), rgba(75, 0, 130, 0.1));
+        }
+
+        .filter-option[data-type="mage"] {
+            background: linear-gradient(90deg, rgba(0, 191, 255, 0.1), rgba(30, 144, 255, 0.1));
+        }
+
+        .filter-option[data-type="marksman"] {
+            background: linear-gradient(90deg, rgba(50, 205, 50, 0.1), rgba(34, 139, 34, 0.1));
+        }
+
+        .filter-option[data-type="tank"] {
+            background: linear-gradient(90deg, rgba(255, 140, 0, 0.1), rgba(255, 69, 0, 0.1));
+        }
+
+        .filter-option[data-type="support"] {
+            background: linear-gradient(90deg, rgba(255, 20, 147, 0.1), rgba(220, 20, 60, 0.1));
+        }
+
+        .filter-option:hover {
+            transform: translateX(5px);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .filter-option.active {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.3), rgba(212, 175, 55, 0.4)) !important;
+            color: #FFD700;
+            font-weight: bold;
+            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.3);
+            transform: translateX(8px);
+        }
+
+        .filter-option.active::before {
+            content: '▶';
+            position: absolute;
+            left: 8px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/animations.js"></script>
+    <script>
+        // Tab switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabName + '-tab').classList.add('active');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Drag and Drop for Personal Tier List
+        let draggedElement = null;
+
+        document.addEventListener('dragstart', (e) => {
+            if (e.target.classList.contains('hero-item')) {
+                draggedElement = e.target;
+                e.target.style.opacity = '0.5';
+            }
+        });
+
+        document.addEventListener('dragend', (e) => {
+            if (draggedElement) {
+                draggedElement.style.opacity = '1';
+            }
+        });
+
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('drag-over');
+            });
+
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+
+                if (draggedElement) {
+                    const clone = draggedElement.cloneNode(true);
+                    clone.classList.add('hero-item');
+
+                    const closeBtn = document.createElement('button');
+                    closeBtn.innerHTML = '✕';
+                    closeBtn.style.cssText = 'position: absolute; top: 0; right: 0; background: none; border: none; color: #fff; cursor: pointer; font-size: 1.2rem;';
+                    closeBtn.onclick = function () {
+                        clone.remove();
+                    };
+
+                    clone.style.position = 'relative';
+                    clone.appendChild(closeBtn);
+                    zone.appendChild(clone);
+                }
+            });
+        });
+
+        // Reset Tier List
+        function resetTierList() {
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.innerHTML = '';
+            });
+        }
+
+        // Download Tier List (placeholder)
+        function downloadTierList() {
+            alert('Tier list download feature coming soon!');
+        }
+
+        // Team Builder functionality
+        let teamSlots = {};
+        let draggedHero = null;
+
+        // Setup drag start for hero items
+        function setupHeroDrag() {
+            document.querySelectorAll('.hero-item-team').forEach(hero => {
+                hero.addEventListener('dragstart', (e) => {
+                    draggedHero = hero.getAttribute('data-hero') || hero.textContent.trim();
+                    e.target.style.opacity = '0.5';
+                    e.dataTransfer.effectAllowed = 'move';
+                    e.dataTransfer.setData('text/plain', draggedHero);
+                });
+
+                hero.addEventListener('dragend', (e) => {
+                    e.target.style.opacity = '1';
+                    draggedHero = null;
+                });
+            });
+        }
+
+        // Setup drag handlers for 3D hero slots
+        document.querySelectorAll('.hero-slot').forEach(slot => {
+            slot.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                slot.classList.add('drag-over');
+            });
+
+            slot.addEventListener('dragleave', () => {
+                slot.classList.remove('drag-over');
+            });
+
+            slot.addEventListener('drop', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const heroName = e.dataTransfer.getData('text/plain');
+                const position = slot.getAttribute('data-position');
+
+                if (heroName && position !== null) {
+                    // Update team slots
+                    teamSlots[position] = heroName;
+
+                    // Update the team summary display
+                    const slotElement = document.getElementById('slot-' + position);
+                    slotElement.textContent = heroName;
+                    slotElement.classList.add('filled');
+
+                    // Add visual indicator on map
+                    slot.classList.add('filled');
+
+                    // Add hero icon to the slot circle
+                    const circle = slot.querySelector('.slot-circle');
+                    if (heroName.startsWith('Beatrix')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/BEATRIX.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Chou')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/CHOU.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Fanny')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/FANNY.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Kagura')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/KAGURA.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Angela')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/ANGELA.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Luo Yi')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/LUOYI.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Roger')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/ROGER.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Kaja')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/KAJA.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Brody')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/BRODY.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Tigreal')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/TIGREAL.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Thamuz')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/THAMUZ.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Estes')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/ESTES.png")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Harith')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/HARITH.png")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else if (heroName.startsWith('Lancelot')) {
+                        circle.style.backgroundImage = 'url("../Hero Icons/LANCELOT.jpg")';
+                        circle.style.backgroundSize = 'cover';
+                        circle.style.backgroundPosition = 'center';
+                        circle.style.backgroundRepeat = 'no-repeat';
+                        circle.textContent = ''; // Remove any text
+                    } else {
+                        const parts = heroName.split(' ');
+                        circle.textContent = parts.length > 1 ? parts[1] : parts[0]; // Show emoji if available, otherwise name
+                        circle.style.backgroundImage = ''; // Reset background
+                    }
+
+                    // Add floating animation to the slot
+                    slot.style.animation = 'heroPlaced 0.5s ease-out';
+                    setTimeout(() => {
+                        slot.style.animation = '';
+                    }, 500);
+                }
+
+                slot.classList.remove('drag-over');
+            });
+
+            // Add click handler to remove hero from slot
+            slot.addEventListener('click', (e) => {
+                if (slot.classList.contains('filled')) {
+                    const position = slot.getAttribute('data-position');
+
+                    // Remove from team slots
+                    delete teamSlots[position];
+
+                    // Update the team summary display
+                    const slotElement = document.getElementById('slot-' + position);
+                    slotElement.textContent = 'Empty';
+                    slotElement.classList.remove('filled');
+
+                    // Remove visual indicator on map
+                    slot.classList.remove('filled');
+
+                    // Clear the slot circle
+                    const circle = slot.querySelector('.slot-circle');
+                    circle.textContent = '';
+                    circle.style.backgroundImage = '';
+
+                    // Add return animation
+                    slot.style.animation = 'heroReturned 0.5s ease-out';
+                    setTimeout(() => {
+                        slot.style.animation = '';
+                    }, 500);
+                }
+            });
+        });
+
+        function resetTeam() {
+            document.querySelectorAll('.role-hero').forEach(slot => {
+                slot.textContent = 'Empty';
+                slot.classList.remove('filled');
+            });
+
+            // Reset 3D hero slots
+            document.querySelectorAll('.hero-slot').forEach(slot => {
+                slot.classList.remove('filled');
+                const circle = slot.querySelector('.slot-circle');
+                circle.textContent = '';
+                circle.style.backgroundImage = '';
+            });
+
+            teamSlots = {};
+        }
+
+        // Initialize hero drag on page load
+        setupHeroDrag();
+
+        // Hamburger filter functionality
+        const filterToggle = document.getElementById('filterToggle');
+        const filterDropdown = document.getElementById('filterDropdown');
+        const filterOptions = document.querySelectorAll('.filter-option');
+        const heroItems = document.querySelectorAll('.hero-item-team');
+
+        // Toggle dropdown visibility
+        filterToggle.addEventListener('click', function () {
+            filterDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.filter-container')) {
+                filterDropdown.classList.remove('active');
+            }
+        });
+
+        // Filter heroes by type
+        filterOptions.forEach(option => {
+            option.addEventListener('click', function () {
+                const filterType = this.getAttribute('data-type');
+
+                // Update active state
+                filterOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter heroes
+                heroItems.forEach(hero => {
+                    if (filterType === 'all') {
+                        hero.style.display = 'block';
+                    } else {
+                        const heroType = hero.getAttribute('data-type');
+                        hero.style.display = heroType === filterType ? 'block' : 'none';
+                    }
+                });
+
+                // Close dropdown after selection
+                filterDropdown.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
